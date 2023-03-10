@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap");
+
+:root {
+	--first-main-color: #E8D58C;
+	--second-main-color: #212121;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  transition: max-height 1s, padding-top .5s;
+}
+
+body {
+  background-color: var(--first-main-color);
+}
+
+input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+img {
+  width: 100%;
+  max-height: 0;
+}
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  cursor: pointer;
+}
+
+.wrapper {
+  margin: 10px auto;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 400px;
+}
+
+.label {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  color: #fff;
+  background: var(--second-main-color);
+}
+
+.content {
+  max-height: 0;
+  padding: 0 1em;
+  background: white;
+  overflow: hidden;
+}
+
+.accordion-item {
+  position: relative;
+}
+
+.cross {
+  position: absolute;
+  transform: scale(1.35) rotate(45deg);
+  color: #fff;
+  right: 23px;
+  top: 19px;
+  transition: transform .3s, opacity .3s;
+  cursor: pointer;
+  opacity: 0;
+}
+
+input:checked ~ .content, input:hover ~ .content {
+  max-height: 100vh;
+  padding: 1em;
+}
+
+input:checked ~ .content img, input:hover ~ .content img {
+  width: 100%;
+  max-height: 100%;
+}
+
+input:checked ~ .cross, input:hover ~ .cross {
+  transform: scale(1.5) rotate(0);
+}
+
+.accordion:hover .label, .accordion:hover .cross {
+  color: var(--first-main-color);
+  transition: color .3s, transform .3s;
+}
+
+.accordion:hover .cross {
+  opacity: 1;
+  transition: opacity .3s;
+}
