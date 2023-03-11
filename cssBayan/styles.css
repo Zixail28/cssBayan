@@ -29,6 +29,10 @@ img {
   max-height: 0;
 }
 
+label {
+  cursor: pointer;
+}
+
 .accordion {
   display: flex;
   flex-direction: column;
@@ -48,7 +52,6 @@ img {
   justify-content: space-between;
   padding: 1em;
   font-weight: bold;
-  cursor: pointer;
   color: #fff;
   background: var(--second-main-color);
 }
@@ -71,16 +74,15 @@ img {
   right: 23px;
   top: 19px;
   transition: transform .3s, opacity .3s;
-  cursor: pointer;
   opacity: 0;
 }
 
-input:checked ~ .content, input:hover ~ .content {
+input:checked ~ label.label-img .content, input:hover ~ label.label-img .content, .content:hover {
   max-height: 100vh;
   padding: 1em;
 }
 
-input:checked ~ .content img, input:hover ~ .content img {
+input:checked ~ label.label-img .content img, input:hover ~ label.label-img .content img, .content:hover img {
   width: 100%;
   max-height: 100%;
 }
@@ -89,7 +91,7 @@ input:checked ~ .cross, input:hover ~ .cross {
   transform: scale(1.5) rotate(0);
 }
 
-.accordion:hover .label, .accordion:hover .cross {
+.accordion:hover .label, .accordion:hover .cross, input:checked ~ .label {
   color: var(--first-main-color);
   transition: color .3s, transform .3s;
 }
@@ -97,4 +99,10 @@ input:checked ~ .cross, input:hover ~ .cross {
 .accordion:hover .cross {
   opacity: 1;
   transition: opacity .3s;
+}
+
+.label-img {
+  display: block;
+  width: auto;
+  height: auto;
 }
