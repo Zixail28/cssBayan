@@ -12,7 +12,7 @@
   margin: 0;
   padding: 0;
   border: 0;
-  transition: all 1s;
+  transition: all .5s;
   user-select: none;
 }
 
@@ -76,30 +76,12 @@ h1 {
   max-height: 0;
   background: white;
   overflow: hidden;
-  max-width: 40vw;
+  max-width: 30vw;
   background-color: var(--second-main-color);
 }
 
 .cross {
-  transform: rotate(45deg);
   opacity: 0;
-}
-
-.cross::before,
-.cross::after {
-  content: "";
-  display: block;
-  width: 1.2rem;
-  height: 0.2rem;
-  background-color: #fff;
-}
-
-.cross::before {
-  transform: rotate(45deg) translateY(60%);
-}
-
-.cross::after {
-  transform: rotate(-45deg) translateY(-60%);
 }
 
 
@@ -110,18 +92,12 @@ input:checked~.content {
 }
 
 input:checked~.label-item .cross {
-  transform: scale(1.5) rotate(0);
+  transform: scale(1.2) rotate(45deg);
   opacity: 1;
 }
 
-input:checked~.label-item .cross::after,
-input:checked~.label-item .cross::before {
-  background-color: var(--first-main-color);
-}
-
-
-
-input:checked~.label-item .label {
+input:checked~.label-item .label,
+input:checked~.label-item .cross {
   color: var(--first-main-color);
 }
 
@@ -131,12 +107,8 @@ label:active {
 
 @media (hover: hover) {
 
-  .accordion:hover .accordion-item .label-item .cross::after,
-  .accordion:hover .accordion-item .label-item .cross::before {
-    background-color: var(--first-main-color);
-  }
-
-  .accordion:hover .label-item .label {
+  .accordion:hover .label-item .label,
+  .accordion:hover .accordion-item .label-item .cross {
     color: var(--first-main-color);
   }
 
@@ -145,7 +117,7 @@ label:active {
   }
 
   input:hover~.label-item .cross {
-    transform: scale(1.5) rotate(0);
+    transform: scale(1.2) rotate(45deg);
     opacity: 1;
   }
 
